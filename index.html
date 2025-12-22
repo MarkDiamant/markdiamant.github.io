@@ -11,12 +11,11 @@
   <!-- SEO -->
   <meta name="description" content="Avark Group acquires and runs established UK service businesses, supporting owners planning retirement or phased exits." />
 
-  <!-- Open Graph / link preview -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Avark Group">
   <meta property="og:description" content="We acquire and run established UK service businesses, supporting owners planning retirement or phased exits.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://avarkgroup.co.uk/">
-  <!-- Note: create og-image.png later (optional). If you don't add it, previews may be text-only. -->
   <meta property="og:image" content="https://avarkgroup.co.uk/og-image.png">
 
   <style>
@@ -45,7 +44,6 @@
 
     .wrap{max-width:var(--max); margin:0 auto; padding:26px 18px 70px}
 
-    /* Sticky header */
     .top{
       position: sticky;
       top: 0;
@@ -60,156 +58,64 @@
       padding:14px 18px;
       max-width:var(--max);
       margin:0 auto;
-      position: relative;
+      position:relative;
     }
 
-    .brand{display:flex; align-items:center; gap:10px; font-weight:650; letter-spacing:.2px;}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:650;}
     .logo{
       width:34px; height:34px; border-radius:10px;
       background: linear-gradient(135deg, rgba(122,162,255,.95), rgba(125,255,207,.85));
-      box-shadow: 0 10px 24px rgba(0,0,0,.25);
     }
 
     .nav{display:flex; gap:12px; font-size:14px; color:var(--muted);}
-    .nav a{padding:8px 10px; border:1px solid transparent; border-radius:999px}
-    .nav a:hover{border-color:rgba(255,255,255,.14); color:var(--text)}
+    .nav a{padding:8px 10px; border-radius:999px}
+    .nav a:hover{color:var(--text)}
+
+    section[id]{ scroll-margin-top: 90px; }
+    .spacer{height:90px}
 
     .hero{
       margin-top:22px;
-      border:1px solid rgba(255,255,255,.10);
-      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
-      box-shadow: var(--shadow);
-      border-radius: var(--radius);
       padding:44px 28px;
-      position:relative;
-      overflow:hidden;
+      border-radius:var(--radius);
+      background:rgba(255,255,255,.05);
+      box-shadow:var(--shadow);
     }
-    .hero:before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(650px 280px at 20% 0%, rgba(122,162,255,.18), transparent 60%),
-                  radial-gradient(560px 260px at 80% 10%, rgba(125,255,207,.14), transparent 60%);
-      pointer-events:none;
-    }
-    .hero > *{position:relative}
 
     h1{
       margin:0 0 12px;
-      font-size: clamp(30px, 4vw, 48px);
-      letter-spacing:-.7px;
-      line-height:1.12;
-    }
-    .sub{
-      margin:0;
-      color:var(--muted);
-      max-width: 78ch;
-      font-size: clamp(15px, 1.4vw, 18px);
+      font-size:clamp(30px,4vw,48px);
     }
 
-    .cta{display:flex; flex-wrap:wrap; gap:12px; margin-top:22px;}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-      font-weight:600;
-      font-size:14px;
-    }
-    .btn:hover{border-color:rgba(255,255,255,.22); background: rgba(255,255,255,.06)}
-    .btn.primary{
-      border-color: rgba(122,162,255,.55);
-      background: rgba(122,162,255,.12);
-    }
-
-    /* Anchor offset for sticky header */
-    section[id]{ scroll-margin-top: 90px; }
-
-    .spacer{height:90px}
+    .sub{color:var(--muted); max-width:78ch}
 
     .grid{
       display:grid;
       grid-template-columns: repeat(12, 1fr);
       gap:16px;
-      margin-top:0;
     }
     .card{
       grid-column: span 12;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      border-radius: var(--radius);
-      padding:20px 20px;
+      padding:20px;
+      border-radius:var(--radius);
+      background:rgba(255,255,255,.04);
     }
-    .card h2{
-      margin:0 0 10px;
-      font-size:16px;
-      letter-spacing:-.2px;
-    }
-    .card p, .card li{color:var(--muted); margin:0}
-    .card ul{margin:10px 0 0; padding-left:18px}
-    .card li{margin:7px 0}
+    .card h2{margin-top:0}
 
-    @media (min-width: 900px){
-      .card.span6{grid-column: span 6}
-      .card.span4{grid-column: span 4}
+    @media(min-width:900px){
+      .span6{grid-column: span 6}
     }
 
     .footer{
-      margin-top:34px;
-      color:rgba(184,195,223,.85);
+      margin-top:50px;
       font-size:13px;
-      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
-      padding:10px 2px 0;
-      border-top: 1px solid rgba(255,255,255,.06);
-    }
-    .footlinks{display:flex; gap:14px}
-    .footlinks a:hover{color:var(--text)}
-
-    /* Mobile hamburger menu */
-    .menu-btn{
-      display:none;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-      font-weight:650;
-      font-size:14px;
-      cursor:pointer;
-      user-select:none;
-    }
-    .menu-btn:hover{border-color:rgba(255,255,255,.22); background: rgba(255,255,255,.06)}
-
-    .menu-panel{
-      display:none;
-      position:absolute;
-      right:18px;
-      top:56px;
-      width:min(340px, calc(100vw - 36px));
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(11,18,32,.92);
-      backdrop-filter: blur(10px);
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-      padding:10px;
-    }
-    .menu-panel a{
-      display:block;
-      padding:10px 12px;
-      border-radius:12px;
-      color: var(--text);
-    }
-    .menu-panel a:hover{
-      background: rgba(255,255,255,.06);
-    }
-
-    @media (max-width: 720px){
-      .nav{ display:none; }
-      .menu-btn{ display:inline-flex; }
+      color:var(--muted);
+      border-top:1px solid rgba(255,255,255,.08);
+      padding-top:12px;
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:10px;
     }
   </style>
 </head>
@@ -217,31 +123,17 @@
 <body>
   <div class="top">
     <div class="top-inner">
-      <div class="brand" aria-label="Avark Group">
-        <div class="logo" aria-hidden="true"></div>
-        <div>Avark Group</div>
+      <div class="brand">
+        <div class="logo"></div>
+        Avark Group
       </div>
-
-      <!-- Desktop nav -->
-      <nav class="nav" aria-label="Navigation">
+      <nav class="nav">
         <a href="#about">About</a>
         <a href="#criteria">What we look for</a>
-        <a href="#how">How we operate</a>
+        <a href="#owners">For owners</a>
         <a href="#process">Process</a>
         <a href="#contact">Contact</a>
       </nav>
-
-      <!-- Mobile menu -->
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
-        ☰ Menu
-      </button>
-      <div class="menu-panel" id="menuPanel" aria-label="Mobile menu">
-        <a href="#about">About</a>
-        <a href="#criteria">What we look for</a>
-        <a href="#how">How we operate</a>
-        <a href="#process">Process</a>
-        <a href="#contact">Contact</a>
-      </div>
     </div>
   </div>
 
@@ -250,13 +142,9 @@
       <h1>We acquire and run established UK service businesses.</h1>
       <p class="sub">
         We work directly with owners and focus on continuity, reputation, and a smooth transition.
-        Our approach is practical and long-term: maintain what works, improve operations over time, and protect relationships.
+        Our approach is practical and long-term: maintain what works, improve operations over time,
+        and protect customer and staff relationships.
       </p>
-
-      <div class="cta">
-        <a class="btn primary" href="#contact">Contact us</a>
-        <a class="btn" href="#process">How we work</a>
-      </div>
     </section>
 
     <div class="spacer"></div>
@@ -265,113 +153,74 @@
       <div class="card span6">
         <h2>What we look for</h2>
         <ul>
-          <li>Established service businesses with consistent demand.</li>
-          <li>Strong reputation and long trading history.</li>
+          <li>Well-established service businesses with consistent demand.</li>
+          <li>Strong reputation built over many years.</li>
           <li>Clear operations and sensible handover potential.</li>
-          <li>Repeatable work and durable customer relationships.</li>
+          <li>Opportunities for incremental, non-disruptive improvement.</li>
         </ul>
       </div>
 
       <div class="card span6">
         <h2>What you can expect from us</h2>
         <ul>
-          <li>Direct, confidential conversations.</li>
-          <li>Respect for what you’ve built and the people involved.</li>
-          <li>Clear questions and straightforward next steps.</li>
-          <li>Openness to phased transitions where helpful.</li>
+          <li>Direct, confidential owner-to-owner discussions.</li>
+          <li>Respect for the business you’ve built and your team.</li>
+          <li>Practical transition planning and handover.</li>
+          <li>Focus on operational continuity and incremental improvements.</li>
         </ul>
       </div>
     </section>
 
     <div class="spacer"></div>
 
-    <section class="grid" id="how">
-      <div class="card span12">
-        <h2>How we operate</h2>
+    <section class="grid" id="owners">
+      <div class="card">
+        <h2>What this means for owners</h2>
         <p>
-          We are operators rather than brokers. Where we proceed, we prioritise a careful handover, keep the existing name and reputation intact,
-          and focus on practical improvements: documentation, scheduling, customer communication, and reducing single-person dependency over time.
+          Our approach is designed to preserve what you’ve built. Day-to-day service delivery,
+          customer relationships, and staff continuity matter. Where changes are made, they are
+          practical, measured, and focused on reducing reliance on any one individual over time.
         </p>
       </div>
     </section>
 
     <div class="spacer"></div>
 
-    <section class="grid">
-      <div class="card span4" id="process">
+    <section class="grid" id="process">
+      <div class="card span6">
         <h2>Our process</h2>
         <ul>
-          <li>Introductory call</li>
-          <li>High-level numbers review</li>
+          <li>Introductory conversation</li>
+          <li>High-level review of the business</li>
           <li>Site visit and operational walkthrough</li>
-          <li>Offer and transition plan</li>
+          <li>Offer and transition planning</li>
         </ul>
       </div>
 
-      <div class="card span4">
-        <h2>Focus</h2>
-        <ul>
-          <li>Service-led businesses</li>
-          <li>Practical operations</li>
-          <li>Long-term continuity</li>
-        </ul>
-      </div>
-
-      <div class="card span4" id="contact">
+      <div class="card span6" id="contact">
         <h2>Contact</h2>
-        <p>Email us directly:</p>
-        <p style="margin-top:12px">
-          <a class="btn primary" href="mailto:info@avarkgroup.co.uk">info@avarkgroup.co.uk</a>
+        <p>
+          <a href="mailto:info@avarkgroup.co.uk">info@avarkgroup.co.uk</a>
         </p>
-        <p style="margin-top:12px; color: var(--muted);">
-          If you’re considering a retirement or phased exit, we’d be glad to talk.
+        <p style="margin-top:10px">
+          Initial conversations are informal and confidential.
         </p>
       </div>
     </section>
 
-    <div class="spacer"></div>
-
     <div class="footer">
-      <div>© <span id="y"></span> Avark Group Ltd. All rights reserved.</div>
-      <div class="footlinks">
-        <a href="#about">Top</a>
-        <a href="#contact">Contact</a>
+      <div>
+        Avark Group Ltd • Company No. <strong>[INSERT COMPANY NUMBER]</strong><br>
+        Registered office: <strong>[INSERT REGISTERED OFFICE ADDRESS]</strong>
+      </div>
+      <div>
+        © <span id="y"></span> Avark Group Ltd • <a href="#">Privacy</a>
       </div>
     </div>
   </div>
 
   <script>
-    // Footer year
     document.getElementById('y').textContent = new Date().getFullYear();
-
-    // Mobile menu toggle
-    const btn = document.getElementById('menuBtn');
-    const panel = document.getElementById('menuPanel');
-
-    function closeMenu(){
-      panel.style.display = 'none';
-      btn.setAttribute('aria-expanded', 'false');
-    }
-
-    btn.addEventListener('click', () => {
-      const open = btn.getAttribute('aria-expanded') === 'true';
-      if (open) {
-        closeMenu();
-      } else {
-        panel.style.display = 'block';
-        btn.setAttribute('aria-expanded', 'true');
-      }
-    });
-
-    panel.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-
-    document.addEventListener('click', (e) => {
-      if (!panel.contains(e.target) && e.target !== btn) closeMenu();
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeMenu();
-    });
   </script>
 </body>
 </html>
