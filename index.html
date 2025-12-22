@@ -32,7 +32,7 @@
 
     .wrap{max-width:var(--max); margin:0 auto; padding:26px 18px 70px}
 
-    /* Sticky header so nav feels “real”, and section anchors land nicely */
+    /* Sticky header */
     .top{
       position: sticky;
       top: 0;
@@ -44,9 +44,10 @@
     .top-inner{
       display:flex; align-items:center; justify-content:space-between;
       gap:14px;
-      padding:14px 2px;
+      padding:14px 18px;
       max-width:var(--max);
       margin:0 auto;
+      position: relative; /* for mobile menu panel positioning */
     }
 
     .brand{display:flex; align-items:center; gap:10px; font-weight:650; letter-spacing:.2px;}
@@ -55,6 +56,7 @@
       background: linear-gradient(135deg, rgba(122,162,255,.95), rgba(125,255,207,.85));
       box-shadow: 0 10px 24px rgba(0,0,0,.25);
     }
+
     .nav{display:flex; gap:12px; font-size:14px; color:var(--muted);}
     .nav a{padding:8px 10px; border:1px solid transparent; border-radius:999px}
     .nav a:hover{border-color:rgba(255,255,255,.14); color:var(--text)}
@@ -98,7 +100,7 @@
       border-radius:999px;
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.04);
-      color:var(--text);
+      color: var(--text);
       font-weight:600;
       font-size:14px;
     }
@@ -108,7 +110,7 @@
       background: rgba(122,162,255,.12);
     }
 
-    /* Give anchors some top margin so sticky header doesn’t cover titles */
+    /* Anchor offset for sticky header */
     section[id]{ scroll-margin-top: 90px; }
 
     .spacer{height:90px}
@@ -149,6 +151,54 @@
       border-top: 1px solid rgba(255,255,255,.06);
     }
     .footlinks{display:flex; gap:14px}
+    .footlinks a:hover{color:var(--text)}
+
+    /* Mobile hamburger menu */
+    .menu-btn{
+      display:none;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-weight:650;
+      font-size:14px;
+      cursor:pointer;
+      user-select:none;
+    }
+    .menu-btn:hover{border-color:rgba(255,255,255,.22); background: rgba(255,255,255,.06)}
+
+    .menu-panel{
+      display:none;
+      position:absolute;
+      right:18px;
+      top:56px;
+      width:min(340px, calc(100vw - 36px));
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(11,18,32,.92);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding:10px;
+    }
+    .menu-panel a{
+      display:block;
+      padding:10px 12px;
+      border-radius:12px;
+      color: var(--text);
+    }
+    .menu-panel a:hover{
+      background: rgba(255,255,255,.06);
+    }
+
+    @media (max-width: 720px){
+      .nav{ display:none; }
+      .menu-btn{ display:inline-flex; }
+      .top-inner{ padding-right: 18px; }
+    }
   </style>
 </head>
 
@@ -159,6 +209,8 @@
         <div class="logo" aria-hidden="true"></div>
         <div>Avark Group</div>
       </div>
+
+      <!-- Desktop nav -->
       <nav class="nav" aria-label="Navigation">
         <a href="#about">About</a>
         <a href="#criteria">What we look for</a>
@@ -166,6 +218,18 @@
         <a href="#process">Process</a>
         <a href="#contact">Contact</a>
       </nav>
+
+      <!-- Mobile menu -->
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        ☰ Menu
+      </button>
+      <div class="menu-panel" id="menuPanel" aria-label="Mobile menu">
+        <a href="#about">About</a>
+        <a href="#criteria">What we look for</a>
+        <a href="#how">How we operate</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
   </div>
 
@@ -265,7 +329,40 @@
   </div>
 
   <script>
+    // Footer year
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const btn = document.getElementById('menuBtn');
+    const panel = document.getElementById('menuPanel');
+
+    function closeMenu(){
+      panel.style.display = 'none';
+      btn.setAttribute('aria-expanded', 'false');
+    }
+
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      if (open) {
+        closeMenu();
+      } else {
+        panel.style.display = 'block';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    // Close when clicking a menu link
+    panel.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!panel.contains(e.target) && e.target !== btn) closeMenu();
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
   </script>
 </body>
 </html>
