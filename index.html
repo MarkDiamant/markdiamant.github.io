@@ -5,87 +5,98 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="Avark Group acquires and runs established UK service businesses, often supporting owners planning a retirement or phased exit." />
   <title>Avark Group</title>
+
   <style>
     html { scroll-behavior: smooth; }
 
     :root{
       --bg:#0b1220;
-      --card:#0f1a30;
       --text:#e9eefc;
       --muted:#b8c3df;
       --line:rgba(255,255,255,.10);
-      --accent:#7aa2ff;
-      --accent2:#7dffcf;
       --shadow:0 18px 50px rgba(0,0,0,.35);
       --radius:18px;
-      --max:980px;
+      --max:1040px;
     }
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       background: radial-gradient(1200px 600px at 10% 10%, rgba(122,162,255,.20), transparent 60%),
                   radial-gradient(900px 500px at 90% 20%, rgba(125,255,207,.14), transparent 55%),
                   var(--bg);
       color:var(--text);
-      line-height:1.55;
+      line-height:1.6;
     }
     a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 50px}
+
+    .wrap{max-width:var(--max); margin:0 auto; padding:26px 18px 70px}
+
+    /* Sticky header so nav feels “real”, and section anchors land nicely */
     .top{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.65);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .top-inner{
       display:flex; align-items:center; justify-content:space-between;
-      gap:14px; padding:10px 2px 24px;
+      gap:14px;
+      padding:14px 2px;
+      max-width:var(--max);
+      margin:0 auto;
     }
-    .brand{
-      display:flex; align-items:center; gap:10px; font-weight:650; letter-spacing:.2px;
-    }
+
+    .brand{display:flex; align-items:center; gap:10px; font-weight:650; letter-spacing:.2px;}
     .logo{
-      width:38px; height:38px; border-radius:12px;
+      width:34px; height:34px; border-radius:10px;
       background: linear-gradient(135deg, rgba(122,162,255,.95), rgba(125,255,207,.85));
-      box-shadow: 0 12px 30px rgba(0,0,0,.25);
+      box-shadow: 0 10px 24px rgba(0,0,0,.25);
     }
-    .nav{
-      display:flex; gap:14px; font-size:14px; color:var(--muted);
-    }
+    .nav{display:flex; gap:12px; font-size:14px; color:var(--muted);}
     .nav a{padding:8px 10px; border:1px solid transparent; border-radius:999px}
-    .nav a:hover{border-color:var(--line); color:var(--text)}
+    .nav a:hover{border-color:rgba(255,255,255,.14); color:var(--text)}
+
     .hero{
-      margin-top:8px;
-      border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      margin-top:22px;
+      border:1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
       box-shadow: var(--shadow);
       border-radius: var(--radius);
-      padding:36px 26px;
+      padding:44px 28px;
       position:relative;
       overflow:hidden;
     }
     .hero:before{
       content:"";
       position:absolute; inset:-2px;
-      background: radial-gradient(600px 260px at 20% 0%, rgba(122,162,255,.18), transparent 60%),
-                  radial-gradient(520px 240px at 80% 10%, rgba(125,255,207,.14), transparent 60%);
+      background: radial-gradient(650px 280px at 20% 0%, rgba(122,162,255,.18), transparent 60%),
+                  radial-gradient(560px 260px at 80% 10%, rgba(125,255,207,.14), transparent 60%);
       pointer-events:none;
     }
     .hero > *{position:relative}
+
     h1{
-      margin:0 0 10px;
-      font-size: clamp(28px, 4vw, 44px);
-      letter-spacing:-.6px;
+      margin:0 0 12px;
+      font-size: clamp(30px, 4vw, 48px);
+      letter-spacing:-.7px;
+      line-height:1.12;
     }
     .sub{
       margin:0;
       color:var(--muted);
-      max-width: 70ch;
-      font-size: clamp(15px, 1.6vw, 18px);
+      max-width: 78ch;
+      font-size: clamp(15px, 1.4vw, 18px);
     }
-    .cta{
-      display:flex; flex-wrap:wrap; gap:12px; margin-top:18px;
-    }
+
+    .cta{display:flex; flex-wrap:wrap; gap:12px; margin-top:22px;}
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       padding:10px 14px;
       border-radius:999px;
-      border:1px solid var(--line);
+      border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.04);
       color:var(--text);
       font-weight:600;
@@ -96,48 +107,54 @@
       border-color: rgba(122,162,255,.55);
       background: rgba(122,162,255,.12);
     }
+
+    /* Give anchors some top margin so sticky header doesn’t cover titles */
+    section[id]{ scroll-margin-top: 90px; }
+
+    .spacer{height:90px}
+
     .grid{
       display:grid;
       grid-template-columns: repeat(12, 1fr);
-      gap:14px;
-      margin-top:16px;
+      gap:16px;
+      margin-top:0;
     }
     .card{
       grid-column: span 12;
-      border:1px solid var(--line);
+      border:1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
       border-radius: var(--radius);
-      padding:18px 18px;
+      padding:20px 20px;
     }
     .card h2{
-      margin:0 0 8px;
+      margin:0 0 10px;
       font-size:16px;
       letter-spacing:-.2px;
     }
     .card p, .card li{color:var(--muted); margin:0}
     .card ul{margin:10px 0 0; padding-left:18px}
-    .card li{margin:6px 0}
+    .card li{margin:7px 0}
 
-    @media (min-width: 860px){
+    @media (min-width: 900px){
       .card.span6{grid-column: span 6}
       .card.span4{grid-column: span 4}
     }
 
-    .spacer{height:60px}
-
     .footer{
-      margin-top:18px;
+      margin-top:34px;
       color:rgba(184,195,223,.85);
       font-size:13px;
       display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
-      padding:6px 2px;
+      padding:10px 2px 0;
+      border-top: 1px solid rgba(255,255,255,.06);
     }
     .footlinks{display:flex; gap:14px}
   </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <div class="top">
+  <div class="top">
+    <div class="top-inner">
       <div class="brand" aria-label="Avark Group">
         <div class="logo" aria-hidden="true"></div>
         <div>Avark Group</div>
@@ -145,16 +162,19 @@
       <nav class="nav" aria-label="Navigation">
         <a href="#about">About</a>
         <a href="#criteria">What we look for</a>
+        <a href="#how">How we operate</a>
         <a href="#process">Process</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
+  </div>
 
+  <div class="wrap">
     <section class="hero" id="about">
       <h1>We acquire and run established UK service businesses.</h1>
       <p class="sub">
-        Avark Group is a London-based buyer focused on well-run, long-standing service companies.
-        We work directly with owners and prioritise continuity, reputation, and a smooth transition.
+        We work directly with owners and focus on continuity, reputation, and a smooth transition.
+        Our approach is practical and long-term: maintain what works, improve operations over time, and protect relationships.
       </p>
 
       <div class="cta">
@@ -171,8 +191,8 @@
         <ul>
           <li>Established service businesses with consistent demand.</li>
           <li>Strong reputation and long trading history.</li>
-          <li>Owner-led companies where a sensible handover is possible.</li>
-          <li>Opportunities to document and improve operations over time.</li>
+          <li>Clear operations and sensible handover potential.</li>
+          <li>Repeatable work and durable customer relationships.</li>
         </ul>
       </div>
 
@@ -182,10 +202,26 @@
           <li>Direct, confidential conversations.</li>
           <li>Respect for what you’ve built and the people involved.</li>
           <li>Clear questions and straightforward next steps.</li>
-          <li>Openness to phased transitions where it helps preserve continuity.</li>
+          <li>Openness to phased transitions where helpful.</li>
         </ul>
       </div>
+    </section>
 
+    <div class="spacer"></div>
+
+    <section class="grid" id="how">
+      <div class="card span12">
+        <h2>How we operate</h2>
+        <p>
+          We are operators rather than brokers. Where we proceed, we prioritise a careful handover, keep the existing name and reputation intact,
+          and focus on practical improvements: documentation, scheduling, customer communication, and reducing single-person dependency over time.
+        </p>
+      </div>
+    </section>
+
+    <div class="spacer"></div>
+
+    <section class="grid">
       <div class="card span4" id="process">
         <h2>Our process</h2>
         <ul>
@@ -208,16 +244,16 @@
       <div class="card span4" id="contact">
         <h2>Contact</h2>
         <p>Email us directly:</p>
-        <p style="margin-top:10px">
-          <a class="btn primary" href="mailto:mark@avarkgroup.co.uk">mark@avarkgroup.co.uk</a>
+        <p style="margin-top:12px">
+          <a class="btn primary" href="mailto:info@avarkgroup.co.uk">info@avarkgroup.co.uk</a>
         </p>
-        <p style="margin-top:10px; color: var(--muted);">
+        <p style="margin-top:12px; color: var(--muted);">
           If you’re considering a retirement or phased exit, we’d be glad to talk.
         </p>
       </div>
     </section>
 
-    <div class="spacer" style="height:80px"></div>
+    <div class="spacer"></div>
 
     <div class="footer">
       <div>© <span id="y"></span> Avark Group Ltd. All rights reserved.</div>
