@@ -6,6 +6,8 @@
   <meta name="description" content="Avark Group acquires and runs established UK service businesses, often supporting owners planning a retirement or phased exit." />
   <title>Avark Group</title>
   <style>
+    html { scroll-behavior: smooth; }
+
     :root{
       --bg:#0b1220;
       --card:#0f1a30;
@@ -115,10 +117,14 @@
     .card p, .card li{color:var(--muted); margin:0}
     .card ul{margin:10px 0 0; padding-left:18px}
     .card li{margin:6px 0}
+
     @media (min-width: 860px){
       .card.span6{grid-column: span 6}
       .card.span4{grid-column: span 4}
     }
+
+    .spacer{height:60px}
+
     .footer{
       margin-top:18px;
       color:rgba(184,195,223,.85);
@@ -127,13 +133,6 @@
       padding:6px 2px;
     }
     .footlinks{display:flex; gap:14px}
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 12px; border-radius:999px;
-      border:1px solid var(--line); background: rgba(255,255,255,.03);
-      color:var(--muted); font-size:13px;
-    }
-    .pill b{color:var(--text); font-weight:650}
   </style>
 </head>
 <body>
@@ -161,48 +160,48 @@
       <div class="cta">
         <a class="btn primary" href="#contact">Contact us</a>
         <a class="btn" href="#process">How we work</a>
-        <span class="pill"><b>Founded</b> 2025</span>
-        <span class="pill"><b>Focus</b> London &amp; UK</span>
       </div>
     </section>
+
+    <div class="spacer"></div>
 
     <section class="grid" id="criteria">
       <div class="card span6">
         <h2>What we look for</h2>
         <ul>
-          <li>Established service businesses with consistent demand and a strong reputation.</li>
-          <li>Clear operations that can be documented and improved over time.</li>
-          <li>Owner-led businesses where a sensible handover is possible.</li>
-          <li>Opportunities with repeatable work and durable customer relationships.</li>
+          <li>Established service businesses with consistent demand.</li>
+          <li>Strong reputation and long trading history.</li>
+          <li>Owner-led companies where a sensible handover is possible.</li>
+          <li>Opportunities to document and improve operations over time.</li>
         </ul>
       </div>
 
       <div class="card span6">
         <h2>What you can expect from us</h2>
         <ul>
-          <li>Direct, confidential conversations (not broker-led).</li>
+          <li>Direct, confidential conversations.</li>
           <li>Respect for what you’ve built and the people involved.</li>
-          <li>A pragmatic approach: clear questions, straightforward next steps.</li>
-          <li>Openness to a phased transition where it helps preserve continuity.</li>
+          <li>Clear questions and straightforward next steps.</li>
+          <li>Openness to phased transitions where it helps preserve continuity.</li>
         </ul>
       </div>
 
       <div class="card span4" id="process">
         <h2>Our process</h2>
         <ul>
-          <li>Intro call</li>
+          <li>Introductory call</li>
           <li>High-level numbers review</li>
-          <li>Site visit & operations review</li>
-          <li>Offer & transition plan</li>
+          <li>Site visit and operational walkthrough</li>
+          <li>Offer and transition plan</li>
         </ul>
       </div>
 
       <div class="card span4">
-        <h2>Focus areas</h2>
+        <h2>Focus</h2>
         <ul>
-          <li>Service-led, practical businesses</li>
-          <li>Operational improvement opportunities</li>
-          <li>Low complexity transitions</li>
+          <li>Service-led businesses</li>
+          <li>Practical operations</li>
+          <li>Long-term continuity</li>
         </ul>
       </div>
 
@@ -217,6 +216,8 @@
         </p>
       </div>
     </section>
+
+    <div class="spacer" style="height:80px"></div>
 
     <div class="footer">
       <div>© <span id="y"></span> Avark Group Ltd. All rights reserved.</div>
