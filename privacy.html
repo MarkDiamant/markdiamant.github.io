@@ -45,12 +45,20 @@
       padding:14px 18px;
       max-width:var(--max);
       margin:0 auto;
+      position:relative;
     }
 
-    .brand{display:flex; align-items:center; gap:10px; font-weight:650;}
+    /* Brand / logo */
+    .brand{display:flex; align-items:center;}
     .logo{
-      width:34px; height:34px; border-radius:10px;
-      background: linear-gradient(135deg, rgba(122,162,255,.95), rgba(125,255,207,.85));
+      height:48px;
+      width:auto;
+      display:block;
+      object-fit:contain;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,.35));
+    }
+    @media (max-width: 720px){
+      .logo{ height:42px; }
     }
 
     .nav{display:flex; gap:12px; font-size:14px; color:var(--muted);}
@@ -101,8 +109,7 @@
   <div class="top">
     <div class="top-inner">
       <a class="brand" href="/" aria-label="Home">
-        <div class="logo" aria-hidden="true"></div>
-        Avark Group
+        <img src="/logo.png" class="logo" alt="Avark Group">
       </a>
       <nav class="nav" aria-label="Navigation">
         <a href="/">Home</a>
