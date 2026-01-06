@@ -5,13 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Avark Group Ltd | UK Business Acquisitions</title>
 
-  <!-- Favicon -->
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <!-- SEO -->
   <meta name="description" content="Avark Group acquires and runs established UK service businesses, supporting owners planning retirement or phased exits." />
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Avark Group Ltd">
   <meta property="og:description" content="We acquire and run established UK service businesses, supporting owners planning retirement or phased exits.">
   <meta property="og:type" content="website">
@@ -25,21 +22,24 @@
       --bg:#0b1220;
       --text:#e9eefc;
       --muted:#b8c3df;
-      --line:rgba(255,255,255,.10);
       --shadow:0 18px 50px rgba(0,0,0,.35);
       --radius:18px;
       --max:1040px;
     }
+
     *{box-sizing:border-box}
+
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      background: radial-gradient(1200px 600px at 10% 10%, rgba(122,162,255,.20), transparent 60%),
-                  radial-gradient(900px 500px at 90% 20%, rgba(125,255,207,.14), transparent 55%),
-                  var(--bg);
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(122,162,255,.20), transparent 60%),
+        radial-gradient(900px 500px at 90% 20%, rgba(125,255,207,.14), transparent 55%),
+        var(--bg);
       color:var(--text);
       line-height:1.6;
     }
+
     a{color:inherit; text-decoration:none}
 
     .wrap{max-width:var(--max); margin:0 auto; padding:26px 18px 70px}
@@ -52,23 +52,45 @@
       background: rgba(11,18,32,.65);
       border-bottom: 1px solid rgba(255,255,255,.06);
     }
+
     .top-inner{
-      display:flex; align-items:center; justify-content:space-between;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
       gap:14px;
       padding:14px 18px;
       max-width:var(--max);
       margin:0 auto;
-      position:relative; /* needed for mobile menu panel positioning */
+      position:relative;
     }
 
-    .brand{display:flex; align-items:center; gap:10px; font-weight:650;}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:650;
+    }
+
+    /* SVG LOGO */
     .logo{
-      width:34px; height:34px; border-radius:10px;
-      background: linear-gradient(135deg, rgba(122,162,255,.95), rgba(125,255,207,.85));
+      height:34px;
+      width:auto;
+      display:block;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,.35));
     }
 
-    .nav{display:flex; gap:12px; font-size:14px; color:var(--muted);}
-    .nav a{padding:8px 10px; border-radius:999px}
+    .nav{
+      display:flex;
+      gap:12px;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    .nav a{
+      padding:8px 10px;
+      border-radius:999px;
+    }
+
     .nav a:hover{color:var(--text)}
 
     section[id]{ scroll-margin-top: 90px; }
@@ -81,10 +103,12 @@
       background:rgba(255,255,255,.05);
       box-shadow:var(--shadow);
     }
+
     h1{
       margin:0 0 12px;
       font-size:clamp(30px,4vw,48px);
     }
+
     .sub{color:var(--muted); max-width:78ch}
 
     .grid{
@@ -92,12 +116,14 @@
       grid-template-columns: repeat(12, 1fr);
       gap:16px;
     }
+
     .card{
       grid-column: span 12;
       padding:20px;
       border-radius:var(--radius);
       background:rgba(255,255,255,.04);
     }
+
     .card h2{margin-top:0}
 
     @media(min-width:900px){
@@ -115,24 +141,22 @@
       flex-wrap:wrap;
       gap:14px;
     }
-    .footer a{ text-decoration: underline; text-underline-offset: 3px; }
 
-    /* Mobile hamburger menu */
+    .footer a{
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     .menu-btn{
       display:none;
-      align-items:center;
-      justify-content:center;
       padding:8px 10px;
       border-radius:999px;
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.04);
       color: var(--text);
       font-weight:650;
-      font-size:14px;
       cursor:pointer;
-      user-select:none;
     }
-    .menu-btn:hover{border-color:rgba(255,255,255,.22); background: rgba(255,255,255,.06)}
 
     .menu-panel{
       display:none;
@@ -143,16 +167,17 @@
       border:1px solid rgba(255,255,255,.10);
       background: rgba(11,18,32,.92);
       backdrop-filter: blur(10px);
-      border-radius: 16px;
+      border-radius:16px;
       box-shadow: var(--shadow);
       padding:10px;
     }
+
     .menu-panel a{
       display:block;
       padding:10px 12px;
       border-radius:12px;
-      color: var(--text);
     }
+
     .menu-panel a:hover{
       background: rgba(255,255,255,.06);
     }
@@ -168,12 +193,11 @@
   <div class="top">
     <div class="top-inner">
       <a class="brand" href="/" aria-label="Home">
-        <div class="logo" aria-hidden="true"></div>
+        <img src="/logo.svg" class="logo" alt="Avark Group">
         Avark Group
       </a>
 
-      <!-- Desktop nav -->
-      <nav class="nav" aria-label="Navigation">
+      <nav class="nav">
         <a href="#about">About</a>
         <a href="#criteria">What we look for</a>
         <a href="#owners">For owners</a>
@@ -181,9 +205,8 @@
         <a href="#contact">Contact</a>
       </nav>
 
-      <!-- Mobile menu -->
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
-      <div class="menu-panel" id="menuPanel" aria-label="Mobile menu">
+      <button class="menu-btn" id="menuBtn">☰</button>
+      <div class="menu-panel" id="menuPanel">
         <a href="#about">About</a>
         <a href="#criteria">What we look for</a>
         <a href="#owners">For owners</a>
@@ -204,67 +227,6 @@
       </p>
     </section>
 
-    <div class="spacer"></div>
-
-    <section class="grid" id="criteria">
-      <div class="card span6">
-        <h2>What we look for</h2>
-        <ul>
-          <li>Well-established service businesses with consistent demand.</li>
-          <li>Strong reputation built over many years.</li>
-          <li>Clear operations and sensible handover potential.</li>
-          <li>Opportunities for incremental, non-disruptive improvement.</li>
-        </ul>
-      </div>
-
-      <div class="card span6">
-        <h2>What you can expect from us</h2>
-        <ul>
-          <li>Direct, confidential owner-to-owner discussions.</li>
-          <li>Respect for the business you’ve built and your team.</li>
-          <li>Practical transition planning and handover.</li>
-          <li>Focus on operational continuity and incremental improvements.</li>
-        </ul>
-      </div>
-    </section>
-
-    <div class="spacer"></div>
-
-    <section class="grid" id="owners">
-      <div class="card">
-        <h2>What this means for owners</h2>
-        <p>
-          Our approach is designed to preserve what you’ve built. Day-to-day service delivery,
-          customer relationships, and staff continuity matter. Where changes are made, they are
-          measured, practical, and focused on reducing reliance on any one individual over time.
-        </p>
-      </div>
-    </section>
-
-    <div class="spacer"></div>
-
-    <section class="grid" id="process">
-      <div class="card span6">
-        <h2>Our process</h2>
-        <ul>
-          <li>Introductory conversation</li>
-          <li>High-level review of the business</li>
-          <li>Site visit and operational walkthrough</li>
-          <li>Offer and transition planning</li>
-        </ul>
-      </div>
-
-      <div class="card span6" id="contact">
-        <h2>Contact</h2>
-        <p>
-          <a href="mailto:info@avarkgroup.co.uk">info@avarkgroup.co.uk</a>
-        </p>
-        <p style="margin-top:10px">
-          Initial conversations are informal and confidential.
-        </p>
-      </div>
-    </section>
-
     <div class="footer">
       <div>
         Avark Group Ltd • Company No. 14462376<br>
@@ -279,32 +241,11 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
-
     const btn = document.getElementById('menuBtn');
     const panel = document.getElementById('menuPanel');
 
-    function closeMenu(){
-      panel.style.display = 'none';
-      btn.setAttribute('aria-expanded', 'false');
-    }
-
     btn.addEventListener('click', () => {
-      const open = btn.getAttribute('aria-expanded') === 'true';
-      if (open) closeMenu();
-      else {
-        panel.style.display = 'block';
-        btn.setAttribute('aria-expanded', 'true');
-      }
-    });
-
-    panel.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-
-    document.addEventListener('click', (e) => {
-      if (!panel.contains(e.target) && e.target !== btn) closeMenu();
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeMenu();
+      panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
     });
   </script>
 </body>
